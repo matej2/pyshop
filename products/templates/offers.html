@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Products</h1>
+
+<div class="row">
+    {% for product in products %}
+        <div class="col mb-4">
+            <div class="card" style="width: 18rem;">
+                {% if product.image_url != None %}
+                <img src="{{ product.image_url }}" class="card-img-top" alt="...">
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title">{{ product.title }}</h5>
+                    <p class="card-text">$ {{ product.price }}</p>
+                    <p class="card-text">$ {{ offer.date_posted|date:"d F, Y" }}</p>
+                    <a href="#" class="btn btn-primary">Add to cart</a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock%}
