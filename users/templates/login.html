@@ -5,12 +5,12 @@
         {% csrf_token %}
         {{ form.as_p }}
         <div class="form-group">
-            <button class="btn btn-outline-info" type="submit">Register</button>
+            <button class="btn btn-outline-info" type="submit">Log in</button>
         </div>
     </form>
     <div class="border-top pt-3">
         <small class="text-muted">
-            Already have an account? <a href="{% url 'login' %}" class="ml-2">Sign in</a>
+            Dont have an account? <a href="#" class="ml-2">Send a registration form</a>
         </small>
     </div>
 </div>
