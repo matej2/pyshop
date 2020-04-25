@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<div>
+    <form method="POST">
+        {% csrf_token %}
+        <h2>Are you sure you want to delete the product "{{ object.name }}"</h2>
+        <div class="form-group">
+            <button class="btn btn-outline-danger" type="submit">Yes, delete</button>
+            <a class="btn btn-outline-secondary" href="{% url 'post-detail' object.id %}">Cancel</a>
+        </div>
+    </form>
+</div>
+{% endblock content %}
