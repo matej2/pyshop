@@ -11,12 +11,11 @@
 <div class="row">
     <div class="col mb-4">
         <div class="card" style="width: 18rem;">
-            {% if object.image_url != None %}
-            <img src="{{ object.image_url }}" class="card-img-top" alt="...">
-            {% endif %}
+            <img src="{{ object.image_url|default:'https://upload.wikimedia.org/wikipedia/commons/6/69/Placeholder_%283%29.png' }}" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title">{{ object.title }}</h5>
                 <p class="card-text">$ {{ object.price }}</p>
+                <p class="card-test">Discount: {{ object.offer.discount }}</p>
                 <a href="#" class="btn btn-primary">Add to cart</a>
                 {% if object.author == user %}
                     <a href="{% url 'post-update' object.id %}" class="btn btn-default">Update</a>
