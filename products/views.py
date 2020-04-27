@@ -3,7 +3,7 @@ from abc import ABC
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-from .models import Product
+from .models import Product, Offer
 from django.views.generic import (
     ListView,
     DetailView,
@@ -35,7 +35,7 @@ class PostDetailView(DetailView):
 
 class PostCreateView(LoginRequiredMixin, CreateView):
     model = Product
-    fields = ['name', 'price', 'stock', 'image_url']
+    fields = ['name', 'price', 'stock', 'image_url', 'offer']
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -44,7 +44,7 @@ class PostCreateView(LoginRequiredMixin, CreateView):
 
 class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Product
-    fields = ['name', 'price', 'stock', 'image_url']
+    fields = ['name', 'price', 'stock', 'image_url', 'offer']
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -60,6 +60,55 @@ class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
 class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Product
+    success_url = '/'
+
+    def test_func(self):
+        post = self.get_object()
+        if self.request.user == post.author:
+            return True
+        else:
+            return False
+
+
+class OfferListView(ListView):
+    model = Offer
+    template_name = 'offers/index.html'
+    context_object_name = 'offers'
+    ordering = ['code']
+
+
+class OfferDetailView(DetailView):
+    model = Offer
+    template_name = 'offers/offer_detail.html'
+
+
+class OfferCreateView(LoginRequiredMixin, CreateView):
+    model = Offer
+    fields = ['code', 'description', 'discount']
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+
+
+class OfferUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+    model = Offer
+    fields = ['code', 'description', 'discount']
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+
+    def test_func(self):
+        post = self.get_object()
+        if self.request.user == post.author:
+            return True
+        else:
+            return False
+
+
+class OfferDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+    model = Offer
     success_url = '/'
 
     def test_func(self):

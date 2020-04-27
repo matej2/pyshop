@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Offer details</h1>
+
+<div class="row">
+    <div class="col mb-4">
+        <a href="{% url 'home' %}">Back to home</a>
+    </div>
+</div>
+<div class="row">
+    <div class="col mb-4">
+        {{ offer.code }} {{ offer.description }}
+    </div>
+</div>
+{% endblock%}
