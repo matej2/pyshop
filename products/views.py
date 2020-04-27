@@ -15,7 +15,7 @@ from django.views.generic import (
 
 def index(request):
     products = Product.objects.all()
-    return render(request, "index.html", {"products": products})
+    return render(request, "product_list.html", {"products": products})
 
 
 def newProduct(request):
@@ -24,7 +24,7 @@ def newProduct(request):
 
 class PostListView(ListView):
     model = Product
-    template_name = 'index.html'
+    template_name = 'product_list.html'
     context_object_name = 'products'
     ordering = ['name']
 
@@ -72,7 +72,7 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
 class OfferListView(ListView):
     model = Offer
-    template_name = 'offers/index.html'
+    template_name = 'offers/offer_list.html'
     context_object_name = 'offers'
     ordering = ['code']
 

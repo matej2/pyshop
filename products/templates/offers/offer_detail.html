@@ -5,12 +5,14 @@
 
 <div class="row">
     <div class="col mb-4">
-        <a href="{% url 'home' %}">Back to home</a>
+        <a href="{% url 'offer-list' %}">Back to offers</a>
     </div>
 </div>
 <div class="row">
     <div class="col mb-4">
-        {{ offer.code }} {{ offer.description }}
+        <p>Code: {{ offer.code }}</p>
+        <p>Discount: {{ offer.discount }}</p>
+        <p>Num of products: {{ offer.product_set.all|length }}</p>
     </div>
 </div>
 {% endblock%}

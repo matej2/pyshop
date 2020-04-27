@@ -5,7 +5,7 @@
 
 <div class="row">
     <div class="col mb-4">
-        <a href="{% url 'home' %}">Back to home</a>
+        <a href="{% url 'home' %}">Back to product list</a>
     </div>
 </div>
 <div class="row">
@@ -15,7 +15,7 @@
             <div class="card-body">
                 <h5 class="card-title">{{ object.title }}</h5>
                 <p class="card-text">$ {{ object.price }}</p>
-                <p class="card-test">Discount: {{ object.offer.discount }}</p>
+                <p class="card-test"><a href="{% url 'offer-detail' object.offer.id %}">Offer {{ object.offer.code }}</a>, discount: {{ object.offer.discount }}</p>
                 <a href="#" class="btn btn-primary">Add to cart</a>
                 {% if object.author == user %}
                     <a href="{% url 'post-update' object.id %}" class="btn btn-default">Update</a>

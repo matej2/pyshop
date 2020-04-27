@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Offers</h1>
+
+<div class="row">
+    <div class="col mb-4">
+        <table class="table">
+              <thead>
+                <tr>
+                    <th scope="col">Code</th>
+                    <th scope="col">Discount</th>
+                    <th scope="col">Actions</th>
+                </tr>
+              </thead>
+            <tbody>
+            {% for offer in offers %}
+                <tr>
+                    <td>{{ offer.code }}</td>
+                    <td>{{ offer.discount }}</td>
+                    <td><a href="{% url 'offer-detail' offer.id %}" class="btn btn-primary">View details</a></td>
+                </tr>
+            {% endfor %}
+          </tbody>
+            </table>
+    </div>
+</div>
+{% endblock%}
