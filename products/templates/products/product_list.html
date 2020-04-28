@@ -5,7 +5,7 @@
 
 <div class="row">
     {% for product in products %}
-        <div class="col mb-4">
+        <div class="d-flex flex-row m-4">
             <div class="card" style="width: 18rem;">
                 {% if product.image_url != None %}
                 <img src="{{ product.image_url }}" class="card-img-top" alt="...">
