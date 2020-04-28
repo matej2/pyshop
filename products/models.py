@@ -12,6 +12,9 @@ class Offer(models.Model):
     def __str__(self):
         return self.code
 
+    def get_absolute_url(self):
+        return reverse('offer-detail', kwargs={'pk': self.pk})
+
 
 class Product(models.Model):
     name = models.CharField(max_length=255)
