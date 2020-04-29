@@ -13,27 +13,19 @@ from django.views.generic import (
 )
 
 
-def index(request):
-    products = Product.objects.all()
-    return render(request, "product_list.html", {"products": products})
 
-
-def newProduct(request):
-    return HttpResponse("New product")
-
-
-class PostListView(ListView):
+class ProductListView(ListView):
     model = Product
     template_name = 'product_list.html'
     context_object_name = 'products'
     ordering = ['name']
 
 
-class PostDetailView(DetailView):
+class ProductDetailView(DetailView):
     model = Product
 
 
-class PostCreateView(LoginRequiredMixin, CreateView):
+class ProductCreateView(LoginRequiredMixin, CreateView):
     model = Product
     fields = ['name', 'price', 'stock', 'image_url', 'offer']
 
@@ -42,7 +34,7 @@ class PostCreateView(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
 
-class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+class ProductUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Product
     fields = ['name', 'price', 'stock', 'image_url', 'offer']
 
@@ -58,7 +50,7 @@ class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
             return False
 
 
-class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+class ProductDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Product
     success_url = '/'
 
