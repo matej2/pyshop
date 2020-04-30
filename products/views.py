@@ -18,7 +18,7 @@ class ProductListView(ListView):
     template_name = 'product_list.html'
     context_object_name = 'products'
     ordering = ['name']
-    paginate_by = 2
+    paginate_by = 10
 
 
 class ProductDetailView(DetailView):
@@ -67,7 +67,7 @@ class OfferListView(ListView):
     template_name = 'offers/offer_list.html'
     context_object_name = 'offers'
     ordering = ['code']
-    paginate_by = 2
+    paginate_by = 10
 
 
 class OfferDetailView(DetailView):
