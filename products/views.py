@@ -13,12 +13,12 @@ from django.views.generic import (
 )
 
 
-
 class ProductListView(ListView):
     model = Product
     template_name = 'product_list.html'
     context_object_name = 'products'
     ordering = ['name']
+    paginate_by = 2
 
 
 class ProductDetailView(DetailView):
@@ -67,6 +67,7 @@ class OfferListView(ListView):
     template_name = 'offers/offer_list.html'
     context_object_name = 'offers'
     ordering = ['code']
+    paginate_by = 2
 
 
 class OfferDetailView(DetailView):
