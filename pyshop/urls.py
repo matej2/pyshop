@@ -23,5 +23,6 @@ urlpatterns = [
     path("register", include("users.urls"), name="register"),
     path("login",  auth_views.LoginView.as_view(template_name="login.html"), name="login"),
     path("logout",  auth_views.LogoutView.as_view(template_name="logout.html"), name="logout"),
-    path("profile/", include("users.urls"))
+    path("profile/", include("users.urls")),
+    path("api-auth/", include("rest_framework.urls")),
 ]

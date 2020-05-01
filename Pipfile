@@ -23,6 +23,7 @@ django-crispy-forms = "==1.9.0"
 MarkupSafe = "==1.1.1"
 PyYAML = "==5.1.2"
 django = "*"
+djangorestframework = "*"
 
 [dev-packages]
 

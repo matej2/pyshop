@@ -1,4 +1,4 @@
-django
+django~=3.0.5
 appdirs==1.4.3
 asn1crypto==0.24.0
 cffi==1.12.3
@@ -17,3 +17,4 @@ virtualenvwrapper-win==1.2.6
 zipp==3.1.0
 django-heroku==0.3.1
 django-crispy-forms==1.9.0
+djangorestframework~=3.11.0
