@@ -120,4 +120,3 @@ def about(request):
 class ProductRESTView(viewsets.ModelViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
-    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
