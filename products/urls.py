@@ -14,6 +14,7 @@ from .views import (
 )
 from . import views
 from rest_framework import routers
+from rest_framework.authtoken.views import obtain_auth_token
 
 
 router = routers.DefaultRouter()
@@ -31,5 +32,6 @@ urlpatterns = [
     path("offer/<int:pk>/update/", OfferUpdateView.as_view(), name="offer-update"),
     path("offer/<int:pk>/delete/", OfferDeleteView.as_view(), name="offer-delete"),
     path("about", views.about),
-    path("api", include(router.urls))
+    path("api", include(router.urls)),
+    path("api/login", obtain_auth_token, name="api-login"),
 ]
