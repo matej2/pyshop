@@ -18,7 +18,7 @@ from rest_framework.authtoken.views import obtain_auth_token
 
 
 router = routers.DefaultRouter()
-router.register('/products', views.ProductRESTView)
+router.register('products', views.ProductRESTView)
 
 urlpatterns = [
     path("", ProductListView.as_view(), name="home"),
