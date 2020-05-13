@@ -21,7 +21,7 @@ router = routers.DefaultRouter()
 router.register('products', views.ProductRESTView)
 
 urlpatterns = [
-    path("", ProductListView.as_view(), name="home"),
+    path("product", ProductListView.as_view(), name="post-list"),
     path("product/<int:pk>/", ProductDetailView.as_view(), name="post-detail"),
     path("product/new/", ProductCreateView.as_view(), name="post-create"),
     path("product/<int:pk>/update/", ProductUpdateView.as_view(), name="post-update"),
@@ -32,6 +32,6 @@ urlpatterns = [
     path("offer/<int:pk>/update/", OfferUpdateView.as_view(), name="offer-update"),
     path("offer/<int:pk>/delete/", OfferDeleteView.as_view(), name="offer-delete"),
     path("about", views.about),
-    path("api", include(router.urls)),
+    path("api/", include(router.urls)),
     path("api/login", obtain_auth_token, name="api-login"),
 ]

@@ -24,6 +24,12 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
+                <a class="nav-link" href="{% url 'post-list' %}">Products</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'post-create' %}">New product</a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="{% url 'offer-list' %}">Offers</a>
             </li>
             {% if user.is_authenticated %}
@@ -33,9 +39,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="{% url 'profile-detail' user.id %}">Profile</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'post-create' %}">New product</a>
-            </li>
+
             <li class="nav-item">
                 <a class="nav-link" href="{% url 'logout' %}">Logout</a>
             </li>
@@ -53,7 +57,7 @@
 </nav>
 
 
-<div class="container">
+<div class="container py-3">
     {% if messages %}
     {% for message in messages %}
     <div class="alert alert-{{ message.tags }}">

@@ -23,6 +23,7 @@ class Product(models.Model):
     image_url = models.CharField(max_length=2083, null=True, blank=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     offer = models.ForeignKey(Offer, on_delete=models.CASCADE, null=True, blank=True)
+    date_posted = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
         return self.name
