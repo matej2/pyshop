@@ -26,10 +26,15 @@
             {% for product in products %}
                 <tr>
                     <td>{{ product.name }}</td>
-                    <td>{{ product.price }} <small>(Stock: {{ product.stock }})</small></td>
+                    <td>{{ product.price }}</td>
                     <td><a href="{% url 'post-detail' product.id %}" class="btn btn-primary">View details</a></td>
                 </tr>
             {% endfor %}
+                <tr>
+                    <td><a href="{% url 'post-list' %}">View all products</a></td>
+                    <td></td>
+                    <td></td>
+                </tr>
             </tbody>
         </table>
     </div>
@@ -52,6 +57,11 @@
                     <td><a href="{% url 'offer-detail' offer.id %}" class="btn btn-primary">View details</a></td>
                 </tr>
             {% endfor %}
+                <tr>
+                    <td><a href="{% url 'offer-list' %}">View all offers</a></td>
+                    <td></td>
+                    <td></td>
+                </tr>
             </tbody>
         </table>
     </div>
