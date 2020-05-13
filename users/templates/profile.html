@@ -2,9 +2,8 @@
 {% block content %}
 <div class="row">
     <div class="column">
-        <h1>Profile details</h1>
-        <p>Username: {{ user.username }}</p>
-        <p>Number of products: {{ u.product_set.all|length }}</p>
+        <h1>Hello, {{ user.username }}</h1>
+        <p>You currently have {{ user.product_set.all|length }} product/s</p>
     </div>
 </div>
 {% endblock content %}

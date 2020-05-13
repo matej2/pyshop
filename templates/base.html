@@ -34,9 +34,6 @@
             </li>
             {% if user.is_authenticated %}
             <li class="nav-item">
-                <a href="#" class="nav-link">Hello, {{ user.username }}</a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link" href="{% url 'profile-detail' user.id %}">Profile</a>
             </li>
 
@@ -57,7 +54,7 @@
 </nav>
 
 
-<div class="container py-3">
+<div class="container py-4">
     {% if messages %}
     {% for message in messages %}
     <div class="alert alert-{{ message.tags }}">

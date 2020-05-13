@@ -11,7 +11,7 @@
 </div>
 
 <div class="row">
-    <div class="col-md-5 m-md-2 border">
+    <div class="col-md-5 m-2 p-2 border">
 
         <h3>Latest products</h3>
         <table class="table">
@@ -26,7 +26,7 @@
             {% for product in products %}
                 <tr>
                     <td>{{ product.name }}</td>
-                    <td>{{ product.price }} (Stock: {{ product.stock }})</td>
+                    <td>{{ product.price }} <small>(Stock: {{ product.stock }})</small></td>
                     <td><a href="{% url 'post-detail' product.id %}" class="btn btn-primary">View details</a></td>
                 </tr>
             {% endfor %}
@@ -34,7 +34,7 @@
         </table>
     </div>
 
-    <div class="col-md-5 m-md-2 border">
+    <div class="col-md-5 m-2 p-2 border">
         <h3>Latest offers</h3>
         <table class="table">
           <thead>
