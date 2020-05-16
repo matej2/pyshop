@@ -8,14 +8,14 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <title>PyShop</title>
 </head>
 <body>
 
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="{% url 'home' %}">PyShop</a>
+    <a class="navbar-brand" href="{% url 'home' %}"><i class="fas fa-store"></i> PyShop</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -24,26 +24,26 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'post-list' %}">Products</a>
+                <a class="nav-link" href="{% url 'post-list' %}"> <i class="fas fa-shopping-basket"></i></i> Products</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'post-create' %}">New product</a>
+                <a class="nav-link" href="{% url 'post-create' %}"><i class="fas fa-plus-circle"></i> New product</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'offer-list' %}">Offers</a>
+                <a class="nav-link" href="{% url 'offer-list' %}"><i class="fas fa-boxes"></i> Offers</a>
             </li>
             {% if user.is_authenticated %}
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'profile-detail' user.id %}">Profile</a>
+                <a class="nav-link" href="{% url 'profile-detail' user.id %}"><i class="fas fa-user-circle"></i> Profile</a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                <a class="nav-link" href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i> Logout</a>
             </li>
 
             {% else %}
              <li class="nav-item">
-                <a class="nav-link" href="{% url 'login' %}">Login</a>
+                <a class="nav-link" href="{% url 'login' %}"><i class="fas fa-sign-in-alt"></i> Login</a>
             </li>
             {% endif %}
             <li class="nav-item">
