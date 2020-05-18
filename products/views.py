@@ -13,6 +13,7 @@ from django.views.generic import (
 )
 from rest_framework import viewsets, permissions
 from .serializers import ProductSerializer
+from django.contrib.auth.models import User
 
 
 class ProductListView(ListView):
@@ -32,8 +33,15 @@ class ProductCreateView(LoginRequiredMixin, CreateView):
     fields = ['name', 'price', 'stock', 'image_url', 'offer']
 
     def form_valid(self, form):
+        max_prod = 2
         form.instance.author = self.request.user
-        return super().form_valid(form)
+        prod = len(User.objects.get(id=self.request.user.id).product_set.all())
+
+        if prod > max_prod:
+            form.add_error(error=f"You have reached product limit ({max_prod})", field="name")
+            return super().form_invalid(form)
+        else:
+            return super().form_valid(form)
 
 
 class ProductUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
