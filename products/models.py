@@ -2,6 +2,9 @@ from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
 from django.urls import reverse
+from django.core.exceptions import ValidationError
+from django.utils.translation import gettext_lazy as _
+from django_currentuser.middleware import (get_current_user, get_current_authenticated_user)
 
 
 class Offer(models.Model):
@@ -30,3 +33,13 @@ class Product(models.Model):
 
     def get_absolute_url(self):
         return reverse('post-detail', kwargs={'pk': self.pk})
+
+    def clean(self):
+        max_prod = 2
+        curr_usr = get_current_authenticated_user()
+        num_prods = len(User.objects.get(id=curr_usr.id).product_set.all())
+
+        if num_prods > max_prod:
+            raise ValidationError(_(f'You have too many products ({num_prods}). Remove some of them. '))
+
+        super.clean(self)
