@@ -24,6 +24,7 @@ MarkupSafe = "==1.1.1"
 PyYAML = "==5.1.2"
 django = "*"
 djangorestframework = "*"
+django-currentuser = "*"
 
 [dev-packages]
 
