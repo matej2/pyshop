@@ -1,4 +1,4 @@
-django~=3.0.5
+django~=3.1.14
 appdirs==1.4.3
 asn1crypto==0.24.0
 cffi==1.12.3
