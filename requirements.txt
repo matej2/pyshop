@@ -17,4 +17,4 @@ virtualenvwrapper-win==1.2.6
 zipp==3.1.0
 django-heroku==0.3.1
 django-crispy-forms==1.9.0
-djangorestframework~=3.11.0
+djangorestframework~=3.15.2
